@@ -8,3 +8,22 @@
 // Implement a function that takes an array and sorts it using this technique.
 
 // NOTE: DO NOT use JavaScript’s built-in sorting function (Array.prototype.sort).
+
+function bubbleSort (input) {
+
+  
+  var swapped
+  do {
+    swapped = false
+    for (var i = 0; i < input.length; i ++) {
+      if (input[i] > input[i + 1]) {
+        var temp = input[i+1];
+        input[i+1] = input[i];
+        input[i] = temp
+        swapped = true
+      }
+    }
+  } while (swapped === true);
+  
+  return input;
+}
