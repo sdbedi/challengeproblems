@@ -32,14 +32,6 @@ function characterFrequency (string) {
     }
   }
   
-//   answerArray = answerArray.sort(function(a, b){
-//     if (a[0] < b[0]) //sort string ascending
-//         return -1 
-//     if (a[0] > b[0])
-//         return 1
-//     return 0 //default return value (no sorting)
-// })
-//   answerArray = answerArray.sort(function(a, b){return b[1] - a[1]});
   answerArray.sort(compareSecondColumn);
 
 function compareSecondColumn(a, b) {
