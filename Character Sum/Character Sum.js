@@ -11,3 +11,12 @@
 // "so cool!!1!"	1
 
 
+function charSum (str) {
+  let sum = 0
+  for (var i = 0; i < str.length; i ++) {
+    if ((str[i] * 1) + 2) {
+      sum += (str[i] / 1)
+    }
+  }
+  return sum
+}
