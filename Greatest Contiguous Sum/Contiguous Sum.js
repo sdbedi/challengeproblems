@@ -11,3 +11,13 @@
 // [ 10, -11, 11 ]	11
 // array:
 // [ 1, 2, 3, -6, 4, 5, 6 ]	15
+
+function sumArray (array) {
+  var currentSum = array[0];
+  var largestSum = array[0];
+    for (var i=1; i<array.length; i++) {
+      currentSum = Math.max((currentSum+array[i]), array[i]);
+      largestSum = Math.max(currentSum, largestSum);
+    }
+  return largestSum;
+}
