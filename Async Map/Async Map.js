@@ -144,5 +144,25 @@
 
 // });
 
+var asyncMap = function(tasks, callback){
 
+   var completeTasks = new Array(tasks.length);
+
+   var countdown = tasks.length;
+
+   tasks.forEach(function (task, index) {
+       //each task takes callback
+       task(function (value) {
+           //set the result of the executed callback function to a specific index value
+           completeTasks[index] = value;
+           //decrement counter
+           countdown--;
+           //once we have gone through the tasks array
+           if (countdown === 0) {
+              //invoke the callback on the completeTasks array
+               callback(completeTasks);
+           }
+       });
+   });
+};  
 
