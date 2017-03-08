@@ -17,3 +17,11 @@
 // Submit Code
 
 
+function getTaxIncrease (foods, category) {
+  // Write your code here, and
+  // return your final answer.
+var sum = foods.filter(function (food) {return food.category === category}).map(function (food) {return food.centsPerUnit}).reduce(function (a, b) {return a + b})
+var answer = sum * .15
+return answer
+  
+}
