@@ -1,0 +1,1 @@
+//We have a coin. We flip it N times. For a given array of length N, with each index representing heads or tails (heads = 0, tails = 1).
