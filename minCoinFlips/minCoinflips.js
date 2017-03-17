@@ -30,5 +30,4 @@ function solution (A) {
   if (headCount > tailCount) {console.log(tailCount)}
   if (headCount < tailCount) {console.log(headCount)}
 }
-
-solution(testArray)
+//need to change console logs to return statements ;p
