@@ -4,7 +4,7 @@
 
 //Simple, iterative solution:
 
-function solution(A, B) {
+function simpleSolution(A, B) {
     var isSquare = function (n) {
       return n > 0 && Math.sqrt(n) % 1 === 0;
     };
@@ -30,4 +30,6 @@ function solution(A, B) {
 // ceil(sqrt(a)) = 3.  And number of squares is 4 - 3 + 1
 // = 2. The two numbers are 9 and 16.
 
-
+function solution(A, B) {
+  return (Math.floor(Math.sqrt(B)) - Math.ceil(Math.sqrt(A)) + 1)
+}
