@@ -1,3 +1,5 @@
+//for a given tel number, arrange it so that there is a dash after every three numbers, ie. 813-432-456
+//the last sequence of numbers should have more than one, ie instead of 123-456-789-0, we want 123-4456-78-90
 function solution(S) {
     S = S.split(' ').join('');
     S = S.replace(/-/g, "");
