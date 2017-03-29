@@ -1,5 +1,4 @@
-unction solution(S) {
-    // write your code in JavaScript (Node.js 6.4.0)
+function solution(S) {
     S = S.split(' ').join('');
     S = S.replace(/-/g, "");
 
