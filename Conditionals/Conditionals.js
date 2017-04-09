@@ -24,3 +24,21 @@
 // 5	"Go Away"
 // age:
 // 150	"Stop Playing Around"
+
+
+function bouncer (age) {
+  var response;
+  if (age > 100 ) {
+    response = "Stop Playing Around"
+  }
+  else if (age < 1 ) {
+    response = "Stop Playing Around"
+  }
+  else if (age < 21) {
+    response = "Go Away"
+  }
+  else if (age >= 21) {
+    response = "Welcome"
+  }
+  return response
+}
