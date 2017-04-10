@@ -50,9 +50,8 @@ function subSequence (sequenceArray, windowLength) {
 	    k = sequenceArray.length - i
 	  }
 	  while (k > 1) {
-	    console.log(isIncreasing(sequenceArray.slice(i, i + k)))
-	    console.log(isDecreasing(sequenceArray.slice(i, i + k)))
-	    console.log("total: ", total)
+	    isIncreasing(sequenceArray.slice(i, i + k))
+	    isDecreasing(sequenceArray.slice(i, i + k))
 	    k--
 	  }
 	}
@@ -76,8 +75,8 @@ function subSequence (sequenceArray, windowLength) {
 	  total --
 	  return true
 	}
-	console.log("final total: ", total)
+
 	return total
 }
 
-subSequence(testArray, 3)
+console.log(subSequence(testArray, 3))
