@@ -39,42 +39,45 @@
 
 // For the first window of [188930, 194123, 201345], there are 3 increasing subranges ([188930, 194123, 201345], [188930, 194123], and [194123, 201345]) and 0 decreasing, so the answer is 3. For the second window of [194123, 201345, 154243], there is 1 increasing subrange and 1 decreasing, so the answer is 0. For the third window of [201345, 154243, 154243], there is 1 decreasing subrange and 0 increasing, so the answer is -1.
 
-var myArray = [0, 1, 2, 3, 4, 3, 2]
-var windowLength = 3
+var testArray = [0, 1, 2, 3, 4, 3, 2]
 
-var total = 0
-for (var i = 0; i < myArray.length; i ++) {
-  console.log("i: ", i)
-  var k = windowLength
-  if (k + i > myArray.length) {
-    k = myArray.length - i
-  }
-  while (k > 1) {
-    console.log("sliced array: ", myArray.slice(i,i + k))
-    console.log(isIncreasing(myArray.slice(i, i + k)))
-    console.log(isDecreasing(myArray.slice(i, i + k)))
-    console.log("total: ", total)
-    k--
-  }
+
+function subSequence (sequenceArray, windowLength) {
+	var total = 0
+	for (var i = 0; i < sequenceArray.length; i ++) {
+	  var k = windowLength
+	  if (k + i > sequenceArray.length) {
+	    k = sequenceArray.length - i
+	  }
+	  while (k > 1) {
+	    console.log(isIncreasing(sequenceArray.slice(i, i + k)))
+	    console.log(isDecreasing(sequenceArray.slice(i, i + k)))
+	    console.log("total: ", total)
+	    k--
+	  }
+	}
+
+	function isIncreasing (inputArray) {
+	  for (var q = 0; q < inputArray.length; q ++) {
+	    if (inputArray[q] >= inputArray[q+1]) {
+	        return false;
+	    }
+	  }
+	  total ++
+	  return true
+	}
+
+	function isDecreasing (inputArray) {
+	  for (var r = 0; r < inputArray.length; r ++) {
+	    if (inputArray[r] <= inputArray[r+1]) {
+	        return false;
+	    }
+	  }
+	  total --
+	  return true
+	}
+	console.log("final total: ", total)
+	return total
 }
 
-function isIncreasing (inputArray) {
-  for (var q = 0; q < inputArray.length; q ++) {
-    if (inputArray[q] >= inputArray[q+1]) {
-        return false;
-    }
-  }
-  total ++
-  return true
-}
-
-function isDecreasing (inputArray) {
-  for (var r = 0; r < inputArray.length; r ++) {
-    if (inputArray[r] <= inputArray[r+1]) {
-        return false;
-    }
-  }
-  total --
-  return true
-}
-console.log("final total: ", total)
+subSequence(testArray, 3)
