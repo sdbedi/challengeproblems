@@ -5,14 +5,12 @@
 </head>
 <body>
 <h1>Please open the console.</h1>
-<p>Security features built into JS mean that a user must manually input a local file in order for a script to have access to that file.</p>
+<p>Security features built into JS mean that a user must manually input a local file in order for a script to have access to that file; a JS script cannot automatically access a file off a user's disk. There are ways to automatically read a text file into a JS script; however, those ways would require the information to be exported as a variable, and the input text file would not be structured according to the assignment parameters. Moreover, by letting the user input a text file, the user is more easily able to change the inputs.</p>
 <p>Please select an input file using the button below. Open the console to view the calculations in action.</p>
-<p>NOTE: I have assumed that the input files matches the format </p>
+<p>NOTE: I have assumed that the input files matches the format described in the problem parameters.</p>
 <input type='file' accept='text/plain' onchange='openFile(event)'><br>
 <img id='output'>
-<script language="javascript" src="test.txt">console.log("foo: ", foo)</script>
 <script>
-console.log(foo)
 var openFile = function(event) {
 	var input = event.target;
 
