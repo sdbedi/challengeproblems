@@ -42,7 +42,7 @@
 
 var testArray = [188930, 194123, 201345, 154243, 154243]
 var windowLength = 3 
-
+}
 for (var i = 0; i <= testArray.length - windowLength; i ++) { //each iteration of this loop represents a different window
   console.log(testArray[i])
   console.log("this is the slice:  ", testArray.slice(i, i + windowLength))
@@ -55,7 +55,7 @@ for (var i = 0; i <= testArray.length - windowLength; i ++) { //each iteration o
        
         for (var subrange = 0; subrange < numberOfSubranges; subrange++){
           var subrangeSlice = sequence.slice(subrange, subrange + rangeSize);
-          // if (this.isNonDecreasing(subrangeSlice)){ score++; }
+          // if (this.isNonDecreasing(subrangeSlice)){ score++; 
           // if (this.isNonIncreasing(subrangeSlice)){ score--; }
           console.log("subrangeSlice: ", subrangeSlice)
           isIncreasing(subrangeSlice)
