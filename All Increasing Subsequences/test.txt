@@ -1,0 +1,2 @@
+let foo = "fooey"
+console.log("testing script")

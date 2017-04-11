@@ -4,67 +4,71 @@
 	<title></title>
 </head>
 <body>
-<h1>Read the console.</h1>
-<p>Security features built into JS mean that a user must manually select local files to be read by a JS file or script.</p>
+<h1>Please open the console.</h1>
+<p>Security features built into JS mean that a user must manually input a local file in order for a script to have access to that file.</p>
+<p>Please select an input file using the button below. Open the console to view the calculations in action.</p>
+<p>NOTE: I have assumed that the input files matches the format </p>
 <input type='file' accept='text/plain' onchange='openFile(event)'><br>
 <img id='output'>
+<script language="javascript" src="test.txt">console.log("foo: ", foo)</script>
 <script>
+console.log(foo)
+var openFile = function(event) {
+	var input = event.target;
 
-  var openFile = function(event) {
-    var input = event.target;
+	var reader = new FileReader();
+	var windowCount = 0
+	reader.onload = function(){
+    	var text = reader.result;
 
-    var reader = new FileReader();
-    reader.onload = function(){
-      var text = reader.result;
+    	var windowLength = text[2]
+    	var newString = text.substr(4)
+    	var inputArray = newString.split(" ")
 
-      var windowLength = text[2]
-      var newString = text.substr(4)
-      var inputArray = newString.split(" ")
-      console.log("results: ", windowLength, inputArray)
-      console.log(Array.isArray(inputArray))
-
-      for (var i = 0; i <= inputArray.length - windowLength; i ++) { //each iteration of this loop represents a different window
-    console.log("window number", i + 1, ": ", inputArray.slice(i, i + windowLength))
+    	for (var i = 0; i <= inputArray.length - windowLength; i ++) { //each iteration of this loop represents a different window
+    	windowCount ++
+    	console.log("window number", i + 1, ": ", inputArray.slice(i, i + windowLength))
  
-    var windowTotal = 0; //the 'score' for that particular window
+    	var windowTotal = 0; //the 'score' for that particular window
     
-    checkSubSequences(inputArray.slice(i, i + windowLength)) // this function calculates the windowTotal
-    console.log("windowTotal: ", windowTotal)
-}
+    	checkSubSequences(inputArray.slice(i, i + windowLength)) // this function calculates the windowTotal
+    	console.log("windowTotal for window number ", i + 1, ": ", windowTotal)
+		}
 
-//helper functions below this line
-function checkSubSequences(sequence){
-  for (var rangeSize = sequence.length; rangeSize > 1; rangeSize--) {
-    var numberOfSubranges = sequence.length - rangeSize + 1;
-         
-    for (var subrange = 0; subrange < numberOfSubranges; subrange++){
-      var subrangeSlice = sequence.slice(subrange, subrange + rangeSize);
-        isIncreasing(subrangeSlice)
-        isDecreasing(subrangeSlice)
-    }
-  }
-}
-  
-function isIncreasing (inputArray) {
-  for (var a = 0; a < inputArray.length; a ++) {
-    if (inputArray[a] >= inputArray[a+1]) {
-      return false;
-    }
-  }
-  windowTotal ++
-}
-  
-function isDecreasing (inputArray) {
-  for (var d = 0; d < inputArray.length; d ++) {
-    if (inputArray[d] <= inputArray[d+1]) {
-      return false;
-    }
-  }
-  windowTotal --
-}
+		console.log("There are", inputArray.length, "inputs.", "There are", windowCount, "windows. Each window has a length of", windowLength, ".")
+	  	//helper functions below this line
+		function checkSubSequences(sequence){
+			for (var rangeSize = sequence.length; rangeSize > 1; rangeSize--) {
+		    var numberOfSubranges = sequence.length - rangeSize + 1;
+		         
+			for (var subrange = 0; subrange < numberOfSubranges; subrange++){
+		    	var subrangeSlice = sequence.slice(subrange, subrange + rangeSize);
+		    	isIncreasing(subrangeSlice)
+		        isDecreasing(subrangeSlice)
+		    }
+		  }
+		}
+	  
+		function isIncreasing (inputArray) {
+			for (var a = 0; a < inputArray.length; a ++) {
+		 		if (inputArray[a] >= inputArray[a+1]) {
+		    		return false;
+		    	}
+		  	}
+			windowTotal ++
+		}
+		  
+		function isDecreasing (inputArray) {
+			for (var d = 0; d < inputArray.length; d ++) {
+		    	if (inputArray[d] <= inputArray[d+1]) {
+		    		return false;
+		 		}
+			}
+			windowTotal --
+		}
     };
     reader.readAsText(input.files[0]);
-  };
+};
   
 </script>
 </body>
